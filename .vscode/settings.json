@@ -1,0 +1,11 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "editor.fontSize": 13,
+    "files.exclude" : {
+        "**/.git":true,
+        "**/node_modules":true,
+        "**/.DS_Store":true,
+        "**/*.map":true,
+        "**/app/**/*.js":true
+    }
+}
