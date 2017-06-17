@@ -11,7 +11,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1;
-    var PhotoService;
+    var UserService;
     return {
         setters:[
             function (core_1_1) {
@@ -22,27 +22,39 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
             },
             function (_1) {}],
         execute: function() {
-            PhotoService = (function () {
-                function PhotoService(_http) {
+            UserService = (function () {
+                function UserService(_http) {
                     this._http = _http;
-                    this._url = "http://jsonplaceholder.typicode.com/albums";
+                    this._url = "https://jsonplaceholder.typicode.com/users";
                 }
-                PhotoService.prototype.getAlbums = function () {
+                UserService.prototype.getUsers = function () {
                     return this._http.get(this._url)
                         .map(function (res) { return res.json(); });
                 };
-                PhotoService.prototype.getPhotos = function (id) {
-                    return this._http.get(this._url + "/" + id + "/photos")
+                UserService.prototype.getUser = function (userId) {
+                    return this._http.get(this._url + "/" + userId)
                         .map(function (res) { return res.json(); });
                 };
-                PhotoService = __decorate([
+                UserService.prototype.addUser = function (user) {
+                    return this._http.post(this._url, JSON.stringify(user))
+                        .map(function (res) { return res.json(); });
+                };
+                UserService.prototype.updateUser = function (user) {
+                    return this._http.put(this._url + "/" + user.id, JSON.stringify(user))
+                        .map(function (res) { return res.json(); });
+                };
+                UserService.prototype.deleteUser = function (id) {
+                    return this._http.delete(this._url + "/" + id)
+                        .map(function (res) { return res.json(); });
+                };
+                UserService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])
-                ], PhotoService);
-                return PhotoService;
+                ], UserService);
+                return UserService;
             }());
-            exports_1("PhotoService", PhotoService);
+            exports_1("UserService", UserService);
         }
     }
 });
-//# sourceMappingURL=photo.service.js.map
+//# sourceMappingURL=user.service.js.map

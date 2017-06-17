@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,40 +10,37 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1;
-    var ContactComponent;
+    var core_1, http_1, router_1;
+    var HomeComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
             function (router_1_1) {
                 router_1 = router_1_1;
             }],
         execute: function() {
-            ContactComponent = (function () {
-                function ContactComponent(_router) {
-                    this._router = _router;
+            HomeComponent = (function () {
+                function HomeComponent(_routeParams) {
+                    this._routeParams = _routeParams;
                 }
-                ContactComponent.prototype.onSubmit = function (form) {
-                    console.log(form.value);
-                    this._router.navigate(['Albums']);
+                HomeComponent.prototype.ngOnInit = function () {
                 };
-                ContactComponent.prototype.routerCanDeactivate = function (next, previous) {
-                    // console.log("next", next);
-                    // console.log("previous", previous);
-                    return confirm("Are you sure?");
-                };
-                ContactComponent = __decorate([
+                HomeComponent = __decorate([
                     core_1.Component({
-                        templateUrl: '/app/contact.component.html'
+                        templateUrl: 'app/home.component.html',
+                        providers: [http_1.HTTP_PROVIDERS]
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router])
-                ], ContactComponent);
-                return ContactComponent;
+                    __metadata('design:paramtypes', [router_1.RouteParams])
+                ], HomeComponent);
+                return HomeComponent;
             }());
-            exports_1("ContactComponent", ContactComponent);
+            exports_1("HomeComponent", HomeComponent);
         }
     }
 });
-//# sourceMappingURL=contact.component.js.map
+//# sourceMappingURL=home.component.js.map

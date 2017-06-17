@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './albums.component', "./album.component", "./contact.component"], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', "./navbar.component", "./home.component", "./users.component", "./posts.component", "./user-form.component", './not-found.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './albums.component', "./al
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, albums_component_1, album_component_1, contact_component_1;
+    var core_1, router_1, navbar_component_1, home_component_1, users_component_1, posts_component_1, user_form_component_1, not_found_component_1;
     var AppComponent;
     return {
         setters:[
@@ -20,14 +20,23 @@ System.register(['angular2/core', 'angular2/router', './albums.component', "./al
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (albums_component_1_1) {
-                albums_component_1 = albums_component_1_1;
+            function (navbar_component_1_1) {
+                navbar_component_1 = navbar_component_1_1;
             },
-            function (album_component_1_1) {
-                album_component_1 = album_component_1_1;
+            function (home_component_1_1) {
+                home_component_1 = home_component_1_1;
             },
-            function (contact_component_1_1) {
-                contact_component_1 = contact_component_1_1;
+            function (users_component_1_1) {
+                users_component_1 = users_component_1_1;
+            },
+            function (posts_component_1_1) {
+                posts_component_1 = posts_component_1_1;
+            },
+            function (user_form_component_1_1) {
+                user_form_component_1 = user_form_component_1_1;
+            },
+            function (not_found_component_1_1) {
+                not_found_component_1 = not_found_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -35,15 +44,18 @@ System.register(['angular2/core', 'angular2/router', './albums.component', "./al
                 }
                 AppComponent = __decorate([
                     router_1.RouteConfig([
-                        { path: '/albums', name: 'Albums', component: albums_component_1.AlbumsComponent, useAsDefault: true },
-                        { path: '/albums/:id', name: 'Album', component: album_component_1.AlbumComponent },
-                        { path: '/contact', name: 'Contact', component: contact_component_1.ContactComponent },
-                        { path: '/*other', name: 'Other', redirectTo: ['Albums'] }
+                        { path: '/home', name: 'Home', component: home_component_1.HomeComponent, useAsDefault: true },
+                        { path: '/users', name: 'Users', component: users_component_1.UsersComponent },
+                        { path: '/users/:id', name: 'EditUser', component: user_form_component_1.UserFormComponent },
+                        { path: '/users/new', name: 'New User', component: user_form_component_1.UserFormComponent },
+                        { path: '/posts', name: 'Posts', component: posts_component_1.PostsComponent },
+                        { path: '/not-found', name: 'NotFound', component: not_found_component_1.NotFoundComponent },
+                        { path: '/*other', name: 'Other', redirectTo: ['Home'] }
                     ]),
                     core_1.Component({
                         selector: 'my-app',
-                        templateUrl: '/app/app.component.html',
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        template: "\n        <navbar></navbar>\n        <div class=\"container\">\n            <router-outlet></router-outlet>\n        </div>\n    ",
+                        directives: [navbar_component_1.NavbarComponent, router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
